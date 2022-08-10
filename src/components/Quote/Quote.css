@@ -1,0 +1,47 @@
+.quote-container { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.quote-content { 
+    margin-top: 3rem;
+    width: 800px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.quote-author {
+    margin-top: 20px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.quote-button {
+    margin: 40px auto;
+    border: none;
+    padding: 20px;
+    color: white;
+    font-size: 24px;
+    background-color: rgb(56, 88, 230);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.quote-button:hover{
+    background-color: rgb(43, 61, 144);
+}
+
+.quote-button-back {
+    margin: 40px auto;
+    border: none;
+    padding: 20px;
+    background-color: rgb(231, 7, 7); 
+    margin-left: 20px ;
+    font-size: 24px;
+    border-radius: 10px;
+    font-weight: bold;
+}
