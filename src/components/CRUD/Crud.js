@@ -5,7 +5,7 @@ import { ContactForm } from "./Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Crud = () => {
-  const URI = "http://localhost:8000/contacts";
+  const URI = "https://rafi-api.herokuapp.com/contact/";
   const initialUpdata = {
     id: "",
     status: false,
@@ -29,7 +29,7 @@ export const Crud = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (update.status) {
-      await axios.put(`${URI}/${update.id}`, form).catch((err) => alert(err));
+      await axios.patch(`${URI}/${update.id}`, form).catch((err) => alert(err));
     } else {
       if (form.nama !== "" && form.nomor !== "")
         await axios.post(URI, form).catch((err) => alert(err));
@@ -50,7 +50,7 @@ export const Crud = () => {
 
   const handleEdit = (id) => {
     const data = [...contacts];
-    const foundData = data.find((contact) => contact.id === id);
+    const foundData = data.find((contact) => contact._id === id);
     setForm({ nama: foundData.nama, nomor: foundData.nomor });
     setUpdate({ id: id, status: true });
   };
@@ -76,8 +76,8 @@ export const Crud = () => {
                 key={index}
                 nama={contact.nama}
                 nomor={contact.nomor}
-                onEdit={() => handleEdit(contact.id)}
-                onRemove={() => handleRemove(contact.id)}
+                onEdit={() => handleEdit(contact._id)}
+                onRemove={() => handleRemove(contact._id)}
               />
             ))}
           </ul>
